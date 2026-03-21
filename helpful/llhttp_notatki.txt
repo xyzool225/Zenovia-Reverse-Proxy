@@ -1,0 +1,42 @@
+llhttp pozwala definiować różne callbacki:
+
+{
+    on_message_begin      - Początek nowej wiadomości
+    on_url                - Podczas parsowania URL
+    on_header_field	      - Pole nagłówka (np. Host)
+    on_header_value	      - Wartość pola nagłówka
+    on_headers_complete	  - Po przeczytaniu wszystkich nagłówków
+    on_body	              - Podczas parsowania ciała wiadomości
+    on_message_complete	  - Po zakończeniu całej wiadomości
+}
+
+------------------------------------------------------------------
+
+Wartości llhttp_errno:
+
+typedef enum llhttp_errno {
+    HPE_OK = 0,                     /* brak błędów */
+    HPE_INTERNAL,                   /* błąd wewnętrzny parsera */
+    HPE_STRICT,                     /* błąd zgodności ze standardem HTTP */
+    HPE_CR_EXPECTED,                /* spodziewano się \r w linii */
+    HPE_LF_EXPECTED,                /* spodziewano się \n */
+    HPE_UNEXPECTED_CONTENT_LENGTH,  /* nieoczekiwana długość ciała */
+    HPE_CLOSED_CONNECTION,          /* połączenie zamknięte za wcześnie */
+    HPE_INVALID_METHOD,             /* niepoprawna metoda HTTP */
+    HPE_INVALID_URL,                /* niepoprawny URL */
+    HPE_INVALID_VERSION,            /* niepoprawna wersja HTTP */
+    HPE_INVALID_HEADER_TOKEN,       /* niepoprawny znak w nagłówku */
+    HPE_INVALID_CONTENT_LENGTH,     /* niepoprawna długość Content-Length */
+    HPE_UNEXPECTED_CHAR,            /* nieoczekiwany znak */
+    HPE_CB_message_begin,           /* błąd w callbacku on_message_begin */
+    HPE_CB_url,                     /* błąd w callbacku on_url */
+    HPE_CB_header_field,            /* błąd w callbacku on_header_field */
+    HPE_CB_header_value,            /* błąd w callbacku on_header_value */
+    HPE_CB_headers_complete,        /* błąd w callbacku on_headers_complete */
+    HPE_CB_body,                    /* błąd w callbacku on_body */
+    HPE_CB_message_complete,        /* błąd w callbacku on_message_complete */
+    HPE_PAUSED                      /* parser został wstrzymany */
+} llhttp_errno;
+
+------------------------------------------------------------------
+

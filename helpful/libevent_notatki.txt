@@ -1,0 +1,27 @@
+```
+Jeśli ustawisz read low-watermark na np. 4096 bajtów → 
+callback wywoła się dopiero, gdy w buforze będzie ≥ 4096 bajtów (albo EOF).
+
+Domyślna wartość to low-watermark = 0;
+```
+
+-----------------------------------------------------------------------
+
+```
+Dobre praktyki, których nie znasz (a powinieneś)
+
+- Zawsze SO_REUSEADDR — bez tego (stan TIME_WAIT). 
+
+- Zawsze non-blocking na obu fd.
+
+- Nigdy nie rób długich operacji w callbacku
+  Żadnych sleep(), żadnych blokujących read(). 
+  Jeśli potrzebujesz długiej operacji — wątki albo oddzielny event.
+
+- Sprzątaj zasoby — dla każdego event_new musi być event_free, 
+  dla każdego bufferevent_socket_new musi być bufferevent_free. 
+  Najlepiej trzymaj wskaźniki w strukturze połączenia.
+
+- EAGAIN to nie błąd — w non-blocking I/O read() może zwrócić -1 z errno == EAGAIN, 
+  co znaczy po prostu "dane jeszcze nie gotowe, spróbuj później". 
+```

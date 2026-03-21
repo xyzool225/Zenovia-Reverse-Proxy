@@ -1,0 +1,26 @@
+static void conn_reset(struct conn *c) {
+    if (!c) return;
+
+    // reset parsera
+    llhttp_init(&c->parser, HTTP_REQUEST, &c->settings);
+    c->parser.data = c;
+
+    // reset hosta
+    c->host[0] = '\0';
+    c->reading_host = false;
+
+    // wyczyść pending
+    if (c->pending) {
+        evbuffer_drain(c->pending, evbuffer_get_length(c->pending));
+    }
+
+    // zamknij backend (request zakończony)
+    if (c->backend_bev) {
+        bufferevent_free(c->backend_bev);
+        c->backend_bev = NULL;
+    }
+
+    // reset flag
+    c->close_after_write = false;
+    c->closing = false;
+}
