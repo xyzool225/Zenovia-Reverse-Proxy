@@ -4,6 +4,16 @@
 
 Zenovia Reverse-Proxy HTTP, to program który odbiera żądania od klienta i przekazuje je do odpowiedniego backendu na podstawie nagłówka 'Host'. Reverse-proxy działa jako pośrednik między klientem a backendem, buforując dane i obsługując odpowiedzi, w tym błędy (502).
 
+### PLANY ROZWOJU PROJEKTU
+- keep-alive,
+- low-watermark,
+- timeouts,
+- dodać .h
+- obsługa typowych kodów http
+- logger zamiast printf
+- ewentualnie rozdzielenie na mniejsze pliki
+- wolfssl/openssl
+
 ## 1. Przepływ danych
 
 - **Klient HTTP** → wysyła żądania do proxy.  
