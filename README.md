@@ -90,7 +90,7 @@ curl -v -H "Host: unknown.local" http://127.0.0.1:8081/somepath
 
 ---
 
-### Diagram Mermaid
+### Diagram programu
 
 ```mermaid
 flowchart TD
