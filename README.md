@@ -4,7 +4,8 @@
 
 Zenovia Reverse-Proxy HTTP, to program który odbiera żądania od klienta i przekazuje je do odpowiedniego backendu na podstawie nagłówka 'Host'. Reverse-proxy działa jako pośrednik między klientem a backendem, buforując dane i obsługując odpowiedzi, w tym błędy (502).
 
-Projekt jest w fazie rozwoju.
+- Program działa na linuxie
+- Jest w fazie rozwoju
 
 ### PLANY ROZWOJU PROJEKTU
 - keep-alive,
@@ -102,7 +103,18 @@ curl -v -H "Host: unknown.local" http://127.0.0.1:8081/somepath
 
 ---
 
-### Diagram programu
+## 3. Jak uruchamiać i testować
+
+```bash
+# Potrzebne zależności
+sudo apt update && sudo apt install -y build-essential libevent-dev
+```
+
+```bash
+gcc ot
+```
+
+## Diagram programu
 
 ```mermaid
 flowchart TD
