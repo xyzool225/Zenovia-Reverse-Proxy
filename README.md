@@ -103,15 +103,33 @@ curl -v -H "Host: unknown.local" http://127.0.0.1:8081/somepath
 
 ---
 
-## 3. Jak uruchamiać i testować
+## 4. Jak skompilować kod
 
 ```bash
-# Potrzebne zależności
+# Instalacja potrzebnych zależności
 sudo apt update && sudo apt install -y build-essential libevent-dev
+```
+### Przygotuj bibliotekę llhttp
+
+```bash
+git clone https://github.com/nodejs/llhttp.git /tmp/llhttp 
+cd /tmp/llhttp
+
+npm install 
+make
+
+# Instalacja ręczna (statyczna biblioteka + header) 
+sudo cp build/libllhttp.a /usr/local/lib/ 
+sudo cp include/llhttp.h /usr/local/include/ 
+sudo ldconfig
+
+# Usunięcie katalogu źródłowego
+cd / && rm -rf /tmp/llhttp
 ```
 
 ```bash
-gcc ot
+# Kompilacja
+gcc -Wall -O2 -o out/program src/program.c -levent -lllhttp
 ```
 
 ## Diagram programu
