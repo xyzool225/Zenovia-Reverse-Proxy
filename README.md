@@ -162,6 +162,7 @@ flowchart TD
     classDef proxy fill:#8dd3c7,stroke:#333,stroke-width:1px,color:#222;
     classDef parser fill:#bebada,stroke:#333,stroke-width:1px,color:#222;
     classDef backend fill:#80b1d3,stroke:#333,stroke-width:1px,color:#222;
+```
 
 ## 5. Wnioski / Zdobyte umiejętności
 
