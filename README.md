@@ -162,3 +162,15 @@ flowchart TD
     classDef proxy fill:#8dd3c7,stroke:#333,stroke-width:1px,color:#222;
     classDef parser fill:#bebada,stroke:#333,stroke-width:1px,color:#222;
     classDef backend fill:#80b1d3,stroke:#333,stroke-width:1px,color:#222;
+
+## 5. Wnioski / Zdobyte umiejętności
+
+Projekt Zenovia Reverse Proxy pozwolił mi na praktyczne doświadczenie w:
+
+- Obsłudze wielu równoczesnych połączeń HTTP w czasie rzeczywistym.
+- Buforowaniu i przesyłaniu strumieni danych między klientem a backendem.
+- Asynchronicznym programowaniu w C z użyciem libevent.
+- Analizie ruchu sieciowego i reagowaniu na błędy HTTP (502, niepoprawne requesty).
+- Planowaniu rozwoju projektu w kierunku produkcyjnym: keep-alive, logger, modularność, TLS.
+
+Projekt stanowi solidną podstawę do dalszej pracy z przetwarzaniem strumieni danych i cyfrowych sygnałów.
